@@ -129,6 +129,30 @@ Line | Global   | Local
 2    | num1 [5] | i [5]
 3    | num1 [5] | i [5]<br>answer [25]
 
+#### Returning from a function
+
+Now it’s time to return from the function. Remind the students that the
+value of the expression in the `return` statement becomes the value that the
+function call itself yields:
+
+Line | Global                | Local
+----:|-----------------------|------
+6    |                       |
+7    | num1 [5]              |
+2    | num1 [5]              | i [5]
+3    | num1 [5]              | i [5]<br>answer [25]
+8    | num1 [5]<br>num2 [25] |
+
+Point out that there is *no longer anything in local scope*: once a function
+returns, its local scope disappears, and the values of the variables and
+parameters in its scope are forgotten.
+
+#### Summary
+
+Point out to the students that our environment diagram now tells the entire
+story of the lifetime of the program; we know exactly what its state was at
+every step of the way.
+
 ### Guided Practice ("We Do")
 
 ### Independent Practice ("You Do")
