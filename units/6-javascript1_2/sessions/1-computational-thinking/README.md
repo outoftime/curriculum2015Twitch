@@ -147,6 +147,26 @@ Point out that there is *no longer anything in local scope*: once a function
 returns, its local scope disappears, and the values of the variables and
 parameters in its scope are forgotten.
 
+#### Rules
+
+Having demonstrated the procedure, now write the formal rules for maintaining
+environment diagrams on the board:
+
+##### Variable assignment
+
+1. **Evaluate** the right hand side of the assignment
+2. Write the value in a box in the appropriate scope
+3. Write the name of the variable to the left of the box
+4. Move on to the next line of code.
+
+##### Function calls
+
+1. **Evaluate** the arguments to the function
+2. **Jump** to the first line of the function
+3. In the *local* scope, write the value of the first argument in a box
+4. Next to it, write the name of the first parameter
+5. Repeat steps 3 and 4 for any remaining parameters
+
 #### Summary
 
 Point out to the students that our environment diagram now tells the entire
@@ -155,7 +175,40 @@ every step of the way.
 
 ### Guided Practice ("We Do")
 
+Have the students guide you through the following code. Each step should be
+evaluated by a different student. If anyone gets stuck, remind them of the
+step-by-step process outlined above.
+
+```javascript
+function double(i) {
+  var answer = i * 2;
+  return answer;
+}
+
+var num1 = double(3+2);
+var num2 = double(num1);
+```
+
 ### Independent Practice ("You Do")
+
+Instruct the students to use environment diagrams to track the behavior of the
+following code:
+
+```javascript
+function mystery1(x, y) {
+  var a = x + y;
+  var b = a * 2;
+  return b + 1;
+}
+
+function mystery2(x) {
+  var a = x - 5;
+  return a / 2;
+}
+
+var num1 = mystery1(3, 5);
+var num2 = mystery2(num1 + 2);
+```
 
 #### Exit Ticket
 
